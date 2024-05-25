@@ -189,8 +189,23 @@ ie: 91 rounds to 90; 173 rounds to 200; 1450 rounds to 1000
 
 Hint: use `MARGIN = 1:2` to apply the function to each value instead of only a row/col.
 
-```{r}
 
+```{r}
+# round based on length of num
+
+len_rounding <- function(x){
+  # figures out length of the number
+  n = nchar(x) 
+  
+  #creates a rounded version of the int; negative digits means that say, 56, rounded to -1 would round to 60 but 680 rounded to -2 to 700. 
+  x_int = round(x, digits = -(n-1))
+  return(x_int)
+}
+
+# applying the function 
+mat_rand_rounded <- apply(mat_rand, 1:2, len_rounding)
+
+mat_rand_rounded
 ```
 
 
