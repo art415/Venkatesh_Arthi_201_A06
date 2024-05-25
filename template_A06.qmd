@@ -229,6 +229,12 @@ max_temps <- read_tsv("state_max_temps.tsv") |>
 Calculate the average temperature for each month across the whole data frame (using the data for all three states together).
 
 ```{r}
+# applying mean only on the columns that are months 
+ave_temps<- apply(max_temps[,3:ncol(max_temps)], 2, mean)
+
+# my vector of averages
+ave_temps
+
 
 ```
 
@@ -244,6 +250,9 @@ Create three new data frames by slicing the data by state.
 No need to print any output here.
 
 ```{r}
+colorado <- max_temps[max_temps$state == 'CO',]
+ohio <- max_temps[max_temps$state == 'OH',] 
+virginia <- max_temps[max_temps$state == 'VA',]
 
 ```
 
