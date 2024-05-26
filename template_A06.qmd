@@ -155,7 +155,6 @@ for (i in 1:length(player_info)){
 # add names after for-loop 
 names(points_per_game) <- names(player_info)
 
-print(points_per_game)
 ```
 
 
@@ -166,6 +165,7 @@ Use the list created in Part c and an appropriate apply function to round each v
 Store the output as a vector and print the results.
 
 ```{r}
+# sapply to store as a vector 
 rounded_points_per_game <- sapply(points_per_game, function(x){round(x, digits = 2)})
 
 rounded_points_per_game
@@ -205,7 +205,8 @@ len_rounding <- function(x){
 # applying the function 
 mat_rand_rounded <- apply(mat_rand, 1:2, len_rounding)
 
-mat_rand_rounded
+# I checked that this worked, but didn't ask to print
+# print(mat_rand_rounded)
 ```
 
 
@@ -232,8 +233,8 @@ Calculate the average temperature for each month across the whole data frame (us
 # applying mean only on the columns that are months 
 ave_temps<- apply(max_temps[,3:ncol(max_temps)], 2, mean)
 
-# my vector of averages
-ave_temps
+# # Again, didn't ask for a print; this was my vector of averages
+# ave_temps
 
 
 ```
@@ -291,7 +292,26 @@ Example: The number 312 would return 6 (3 + 1 + 2)
 
 Run your function with 935068.
 
+
 ```{r}
+
+sum_digits <- function(num){
+  if(num == 0){ # base case; if the input is 0 no more recursion
+    return(0)
+  }else{ # recursive case
+    # gets the last digit of the number
+    last_digit <- num %% 10 
+    
+    # removes the last digit 
+    trunc_num <- num %/% 10
+    
+    # adds the last digit to the sum_digits of the rest of the number, which runs till the number hits 0.
+    return(last_digit + sum_digits(trunc_num))
+  }
+}
+
+sum_digits(935068)
+
 
 ```
 
