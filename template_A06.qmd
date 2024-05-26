@@ -274,10 +274,15 @@ Example (this is NOT the answer just an example of what goes in the {}):
 Note: This code should still run successfully even if the numbers were to change.
 
 ```{r}
+# list of medians by year 
+# this applies the median function by row to the data set that doesn't include the beginning labels 
+medians <- apply(colorado[,3:ncol(colorado)], 1, median)
 
+# adds names to the median vector so I can tell them apart 
+names(medians) <- colorado$year
+
+print(paste0('The maximum median annual temperature of ',max(medians),' occured in ',names(which.max(medians)),' and the minimum median annual temperature of ', min(medians), ' occured in ', names(which.min(medians)), '.'))
 ```
-
-
 ## Question 5 (5 points)
 
 Write a recursive function that calculates the sum of the digits in a number. 
