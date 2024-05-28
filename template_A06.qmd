@@ -1,7 +1,7 @@
 ---
 title: "Assignment 6"
 subtitle: "STAT 201"
-author: "YOUR NAME"
+author: "Arthi Venkatesh"
 
 format:
   html:
@@ -205,8 +205,8 @@ len_rounding <- function(x){
 # applying the function 
 mat_rand_rounded <- apply(mat_rand, 1:2, len_rounding)
 
-# I checked that this worked, but didn't ask to print
-# print(mat_rand_rounded)
+# Proof my code works
+print(mat_rand_rounded)
 ```
 
 
@@ -233,8 +233,8 @@ Calculate the average temperature for each month across the whole data frame (us
 # applying mean only on the columns that are months 
 ave_temps<- apply(max_temps[,3:ncol(max_temps)], 2, mean)
 
-# # Again, didn't ask for a print; this was my vector of averages
-# ave_temps
+# This is my vector of averages
+ave_temps
 
 
 ```
